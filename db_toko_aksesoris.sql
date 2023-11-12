@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2023 at 03:30 PM
+-- Generation Time: Nov 12, 2023 at 12:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -48,7 +48,9 @@ INSERT INTO `barang` (`id`, `nama_barang`, `harga`, `stok`, `penilaian`, `katego
 (5, 'cincinH1', 50000, 60, 'sangat baik', 8),
 (6, 'jepitB1', 10000, 50, 'sangat baik', 2),
 (7, 'topiG1', 100000, 10, 'baik', 7),
-(8, 'ikatrambutE1', 20, 10, 'sangat baik', 5);
+(8, 'ikatrambutE1', 20, 10, 'sangat baik', 5),
+(9, 'bandoA2', 25000, 5, 'baik', 8),
+(11, 'bandoA3', 15000, 2, 'baik', 1);
 
 -- --------------------------------------------------------
 
@@ -61,8 +63,16 @@ CREATE TABLE `detail_pesanan` (
   `pesanan_id` int(30) DEFAULT NULL,
   `barang_id` int(30) DEFAULT NULL,
   `jumlah_barang` int(20) DEFAULT NULL,
-  `total_barang` int(50) DEFAULT NULL
+  `total_pesanan` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_pesanan`
+--
+
+INSERT INTO `detail_pesanan` (`id`, `pesanan_id`, `barang_id`, `jumlah_barang`, `total_pesanan`) VALUES
+(2, 2, 2, 2, 5000),
+(3, 2, 4, 40, 40000);
 
 -- --------------------------------------------------------
 
@@ -118,7 +128,8 @@ INSERT INTO `pelanggan` (`id`, `nama`, `jenis_kelamin`, `no_telp`, `alamat`, `ko
 (5, 'indah', 'Wanita', 852, 'belitang', 'belitang', 32445, 'indah123'),
 (6, 'citra', 'Wanita', 823, 'linggau', 'lubuk linggau', 3423, 'citraa'),
 (7, 'kirana', 'Wanita', 854, 'palembang', 'palembang', 3456, 'kirana123'),
-(8, 'minhyun', 'Pria', 6543, 'baturaja', 'baturaja', 12345, 'minhyun123');
+(8, 'minhyun', 'Pria', 6543, 'baturaja', 'baturaja', 12345, 'minhyun123'),
+(16, 'angg', 'Wanita', 9, 'bta', 'b', 0, 'a');
 
 -- --------------------------------------------------------
 
@@ -144,7 +155,8 @@ INSERT INTO `pesanan` (`id`, `tanggal_pesanan`, `pelanggan_id`) VALUES
 (5, '2023-11-09', 3),
 (6, '2023-11-22', 2),
 (7, '2023-11-11', 6),
-(8, '2023-11-05', 5);
+(8, '2023-11-30', 6),
+(10, '2023-11-20', 1);
 
 --
 -- Indexes for dumped tables
@@ -192,13 +204,13 @@ ALTER TABLE `pesanan`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `detail_pesanan`
 --
 ALTER TABLE `detail_pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -210,13 +222,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
